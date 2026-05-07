@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tugas 12 PDW</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#eef2ff;
+        }
+
+        nav{
+            background:#1e3a8a;
+            padding:18px;
+            text-align:center;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin:20px;
+            font-size:18px;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:yellow;
+        }
+
+        .page{
+            display:none;
+        }
+
+        .active{
+            display:block;
+        }
+
+        .container{
+            width:85%;
+            margin:auto;
+            margin-top:30px;
+            background:white;
+            padding:35px;
+            border-radius:15px;
+            box-shadow:0 0 15px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            color:#1e3a8a;
+            margin-bottom:20px;
+        }
+
+        p{
+            margin-bottom:15px;
+        }
+
+        img{
+            display:block;
+            margin:auto;
+            margin-top:20px;
+            margin-bottom:20px;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input,
+        select{
+            width:100%;
+            padding:12px;
+            margin-top:8px;
+            margin-bottom:20px;
+            border-radius:8px;
+            border:1px solid #ccc;
+            font-size:15px;
+        }
+
+        .radio-group{
+            margin-top:10px;
+            margin-bottom:20px;
+        }
+
+        .radio-group input{
+            width:auto;
+        }
+
+        button{
+            padding:10px 15px;
+            background:#1e3a8a;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:14px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#2563eb;
+        }
+
+        .btn-submit{
+            width:100%;
+            padding:14px;
+            font-size:16px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        table th{
+            background:#1e3a8a;
+            color:white;
+        }
+
+        table th,
+        table td{
+            border:1px solid #ccc;
+            padding:12px;
+            text-align:center;
+        }
+
+        ul{
+            margin-left:25px;
+            margin-top:20px;
+        }
+
+        ul li{
+            margin-bottom:10px;
+            font-size:18px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+
+        <a href="#" onclick="showPage('dashboard')">
+            Dashboard
+        </a>
+
+        <a href="#" onclick="showPage('data')">
+            Data Mahasiswa
+        </a>
+
+        <a href="#" onclick="showPage('hobi')">
+            Hobi
+        </a>
+
+        <a href="#" onclick="showPage('about')">
+            About Me
+        </a>
+
+    </nav>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="page active">
+
+        <div class="container">
+
+            <h1>Dashboard Biodata</h1>
+
+            <p>
+                Selamat datang di website belajar website
+                Silahkan isi Biodata Diri anda
+            </p>
+
+            <img src="CHOYY.jpeg" width="180">
+
+            <h1>Form Biodata</h1>
+
+            <form>
+
+                <label>Nama</label>
+                <input type="text" id="nama">
+
+                <label>NIM</label>
+                <input type="text" id="nim">
+
+                <label>Jurusan</label>
+
+                <select id="jurusan">
+
+                    <option value="">
+                        -- Pilih Jurusan --
+                    </option>
+
+                    <option>
+                        Informatika
+                    </option>
+
+                    <option>
+                        Sistem Informasi
+                    </option>
+
+                    <option>
+                        Teknologi Informasi
+                    </option>
+
+                </select>
+
+                <label>Tanggal Lahir</label>
+                <input type="date" id="tanggal">
+
+                <label>Jenis Kelamin</label>
+
+                <div class="radio-group">
+
+                    <input type="radio" name="jk" value="Laki-laki">
+                    Laki-laki
+
+                    <br><br>
+
+                    <input type="radio" name="jk" value="Perempuan">
+                    Perempuan
+
+                </div>
+
+                <label>Hobi</label>
+
+                <select id="hobiSelect">
+
+                    <option value="">
+                        -- Pilih Hobi --
+                    </option>
+
+                    <option>
+                        Gaming
+                    </option>
+
+                    <option>
+                        Ngoding
+                    </option>
+
+                    <option>
+                        Desain
+                    </option>
+
+                    <option>
+                        Futsal
+                    </option>
+
+                </select>
+
+                <label>Motivasi Dalam Berkoding</label>
+
+                <input type="text" id="motivasi"
+                placeholder="Masukkan motivasi kamu">
+
+                <button type="button"
+                class="btn-submit"
+                onclick="tampilData()">
+
+                    Simpan Data
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Data -->
+    <div id="data" class="page">
+
+        <div class="container">
+
+            <h1>Data Mahasiswa</h1>
+
+            <table>
+
+                <tr>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Jurusan</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Hobi</th>
+                    <th>Motivasi</th>
+                    <th>Aksi</th>
+                </tr>
+
+                <tbody id="dataTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- Hobi -->
+    <div id="hobi" class="page">
+
+        <div class="container">
+
+            <h1>Hobi Saya</h1>
+
+            <ul>
+                <li>Gaming</li>
+                <li>Ngoding</li>
+                <li>Desain</li>
+                <li>Futsal</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- About -->
+    <div id="about" class="page">
+
+        <div class="container">
+
+            <h1>About Me</h1>
+
+            <p>
+                Saya adalah mahasiswa yang sedang belajar
+                HTML, CSS, dan JavaScript.
+            </p>
+
+        </div>
+
+    </div>
+
+<script>
+
+    // pindah halaman
+    function showPage(pageId){
+
+        let pages =
+            document.querySelectorAll('.page');
+
+        pages.forEach(function(page){
+            page.classList.remove('active');
+        });
+
+        document
+            .getElementById(pageId)
+            .classList.add('active');
+    }
+
+    // simpan data
+    function tampilData(){
+
+        let nama =
+            document.getElementById("nama").value;
+
+        let nim =
+            document.getElementById("nim").value;
+
+        let jurusan =
+            document.getElementById("jurusan").value;
+
+        let tanggal =
+            document.getElementById("tanggal").value;
+
+        let hobi =
+            document.getElementById("hobiSelect").value;
+
+        let motivasi =
+            document.getElementById("motivasi").value;
+
+        let jk =
+            document.querySelector('input[name="jk"]:checked');
+
+        let jenisKelamin =
+            jk ? jk.value : "-";
+
+        let data = {
+
+            nama: nama,
+            nim: nim,
+            jurusan: jurusan,
+            tanggal: tanggal,
+            jk: jenisKelamin,
+            hobi: hobi,
+            motivasi: motivasi
+
+        };
+
+        let semuaData =
+            JSON.parse(localStorage.getItem("biodata")) || [];
+
+        semuaData.push(data);
+
+        localStorage.setItem(
+            "biodata",
+            JSON.stringify(semuaData)
+        );
+
+        tampilHasil();
+
+        document.querySelector("form").reset();
+
+        showPage('data');
+    }
+
+    // tampil tabel
+    function tampilHasil(){
+
+        let semuaData =
+            JSON.parse(localStorage.getItem("biodata")) || [];
+
+        let table =
+            document.getElementById("dataTable");
+
+        table.innerHTML = "";
+
+        semuaData.forEach(function(data, index){
+
+            table.innerHTML += `
+                <tr>
+
+                    <td>${data.nama}</td>
+                    <td>${data.nim}</td>
+                    <td>${data.jurusan}</td>
+                    <td>${data.tanggal}</td>
+                    <td>${data.jk}</td>
+                    <td>${data.hobi}</td>
+                    <td>${data.motivasi}</td>
+
+                    <td>
+
+                        <button onclick="hapusData(${index})">
+                            Hapus
+                        </button>
+
+                    </td>
+
+                </tr>
+            `;
+        });
+    }
+
+    // hapus data
+    function hapusData(index){
+
+        let semuaData =
+            JSON.parse(localStorage.getItem("biodata")) || [];
+
+        semuaData.splice(index, 1);
+
+        localStorage.setItem(
+            "biodata",
+            JSON.stringify(semuaData)
+        );
+
+        tampilHasil();
+    }
+
+    // otomatis tampil
+    window.onload = function(){
+
+        tampilHasil();
+
+    }
+
+</script>
+
+</body>
+</html>
